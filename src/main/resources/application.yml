@@ -1,0 +1,21 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog.xml
+  application:
+    name: wallet
+  sql:
+    init:
+      mode: never
+  datasource:
+    username: wallet
+    password: wallet
+    url: jdbc:postgresql://localhost:5438/wallet-db
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+
