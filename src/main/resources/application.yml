@@ -9,7 +9,7 @@ spring:
   datasource:
     username: wallet
     password: wallet
-    url: jdbc:postgresql://localhost:5438/wallet-db
+    url: jdbc:postgresql://localhost:5439/wallet-db
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

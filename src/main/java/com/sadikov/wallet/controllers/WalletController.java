@@ -1,6 +1,7 @@
 package com.sadikov.wallet.controllers;
 
 import com.sadikov.wallet.DTOs.WalletOperationDTO;
+import com.sadikov.wallet.exception.BalanceException;
 import com.sadikov.wallet.exception.WalletNotFoundException;
 import com.sadikov.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class WalletController {
         }
         try {
             return new ResponseEntity<>(walletService.replayOperation(walletOperationDTO), HttpStatus.OK);
-        } catch (WalletNotFoundException e) {
+        } catch (WalletNotFoundException | BalanceException  e) {
             return  new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
         }
     }
