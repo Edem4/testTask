@@ -18,7 +18,8 @@ import java.util.UUID;
 public class WalletService {
     @Autowired
     private WalletRepository walletRepository;
-    @Transactional(isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW)
+//    @Transactional(isolation = Isolation.SERIALIZABLE, propagation = Propagation.REQUIRES_NEW)
+    @Transactional
     public String replayOperation(WalletOperationDTO walletOperationDTO) throws WalletNotFoundException, BalanceException {
 
        Optional<Wallet> walletOptional = walletRepository.findById(UUID.fromString(walletOperationDTO.getWalletId()));
